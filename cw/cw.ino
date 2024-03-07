@@ -11,6 +11,7 @@ void generateTTLSequence() {
 
   // Generate pulse sequence
     PIND = B00000100;   // Toggle pin D2 (laser driver control)
+    // delay(1000);
     _delay_us(60000000); // set delay for 1 min rn
     PORTD &= B11111011; // set pin d2 low
 
