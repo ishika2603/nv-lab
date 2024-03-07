@@ -24,11 +24,14 @@ void generateTTLSequence() {
   PORTD |= B00000100; // Set pin D2 high (laser driver control)
 
   // Generate pulse sequence
-  for (long i = 0; i < 10; i++) {
+  for (long i = 0; i < 100000000000000; i++) {
     // Serial.println(i);
-    _delay_us(9.4375);  // Delay for MW pulse
+    // _delay_us(90);
+    _delay_us(94.375);  // Delay for MW pulse
     PORTD &= B11111011; // Set pin D3 low (MW switch control)
-    _delay_us(0.8750);  // Delay for waiting time
+    // PORTD &= B11110111; //D4
+    _delay_us(8.750);  // Delay for waiting time
+    // _delay_us(90);
     PORTD |= B00001000; // Set pin D4 high (S1-S2 switches control)
     PIND = B00001000;   // Toggle pin D3 (MW switch control)
     PIND = B00000100;   // Toggle pin D2 (laser driver control)
